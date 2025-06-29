@@ -75,6 +75,7 @@ python test_hand_detector.py
    - Click actions implementation
    - Sensitivity controls
 
+
 ## 🏗️ Architecture Overview
 - **Modular Design**: Separate modules for detection, recognition, and control
 - **Real-time Processing**: Optimized for low latency
