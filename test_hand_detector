@@ -1,0 +1,40 @@
+import cv2
+from src.core.hand_detector import HandDetector
+
+# Initialize detector
+detector = HandDetector()
+
+# Open camera
+cap = cv2.VideoCapture(0)
+
+print("Press 'q' to quit")
+
+while True:
+    success, image = cap.read()
+    if not success:
+        break
+    
+    # Detect hands
+    image = detector.find_hands(image)
+    
+    # Calculate and display FPS
+    fps, image = detector.find_fps(image)
+
+    # Get hand landmark positions
+    landmarks = detector.find_position(image)
+    
+    # Print tip of index finger position (landmark 8)
+    if len(landmarks) > 8:
+        print(f"Index finger tip at: x={landmarks[8][1]}, y={landmarks[8][2]}")
+    
+    # Display the image
+    cv2.imshow("Hand Tracking", image)
+    
+    # Check for 'q' key press
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
+
+
+# Cleanup
+cap.release()
+cv2.destroyAllWindows()
