@@ -121,3 +121,8 @@ python test_gesture_recognizer.py  # Test gesture recognition
 - Pinch detection threshold may need adjustment based on camera distance
 - FPS may vary based on system performance
 
+## 🤝 Contributing
+Contributions are welcome! Please open an issue or submit a pull request.
+
+Next Branch is coming soon...
+   
